@@ -1,4 +1,4 @@
-package ru.job4j.hiber;
+package ru.job4j.hiber.onetomany;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,13 +18,9 @@ public class HbmRun {
             session.beginTransaction();
 
             ModelAvto logan = ModelAvto.of("Logan");
-            session.save(logan);
             ModelAvto megan = ModelAvto.of("Megan");
-            session.save(logan);
             ModelAvto laguna = ModelAvto.of("Laguna");
-            session.save(logan);
             ModelAvto sandero = ModelAvto.of("Sandero");
-            session.save(logan);
             ModelAvto duster = ModelAvto.of("Duster");
             session.save(logan);
             session.save(megan);
