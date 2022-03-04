@@ -17,8 +17,8 @@
         <property name="format_sql">true</property>
         <property name="use_sql_comments">true</property>
 
-        <mapping class="ru.job4j.hiber.model.ModelAvto" />
-        <mapping class="ru.job4j.hiber.model.MarkAvto" />
+        <mapping class="ru.job4j.lazy.ModelAvto" />
+        <mapping class="ru.job4j.lazy.MarkAvto" />
         <mapping class="ru.job4j.hiber.model.Author" />
         <mapping class="ru.job4j.hiber.model.Book" />
     </session-factory>
