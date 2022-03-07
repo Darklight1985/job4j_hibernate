@@ -6,8 +6,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import ru.job4j.hiber.model.MarkAvto;
-import ru.job4j.hiber.model.ModelAvto;
 
 public class HbmRun {
     public static void main(String[] args) {
@@ -38,6 +36,16 @@ session.save(candidateThree); */
             query = session.createQuery("from Candidate s where s.name = :fName");
             query.setParameter("fName", "Lena");
             System.out.println(query.uniqueResult());
+
+            query = session.createQuery(
+                    "update Candidate c set c.name = :newName, c.experience = :newExp,"
+                            + " c.salary = :newSal where c.id = :fId"
+            );
+            query.setParameter("newName", "Kolyan");
+            query.setParameter("newExp", 6);
+            query.setParameter("newSal", 2100);
+            query.setParameter("fId", 2);
+            query.executeUpdate();
 
             session.createQuery("insert into Candidate (name, experience, salary) "
             + "select concat(c.name, '!'), c.experience + 1, c.salary +  200 "
