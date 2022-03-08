@@ -17,6 +17,9 @@ public class Candidate {
 
     private int salary;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    private BaseVac baseVac;
+
 public static Candidate of(String name, int experience, int salary) {
     Candidate candidate = new Candidate();
     candidate.name = name;
@@ -25,7 +28,15 @@ public static Candidate of(String name, int experience, int salary) {
     return candidate;
 }
 
-   public int getId() {
+    public BaseVac getBaseVac() {
+        return baseVac;
+    }
+
+    public void setBaseVac(BaseVac baseVac) {
+        this.baseVac = baseVac;
+    }
+
+    public int getId() {
         return id;
     }
 
@@ -83,6 +94,7 @@ public static Candidate of(String name, int experience, int salary) {
                 + ", name='" + name + '\''
                 + ", experience=" + experience
                 + ", salary=" + salary
+                + ", baseVac=" + baseVac
                 + '}';
     }
 }
