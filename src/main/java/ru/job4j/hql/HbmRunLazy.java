@@ -16,18 +16,18 @@ public class HbmRunLazy {
             SessionFactory sf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
             Session session = sf.openSession();
             session.beginTransaction();
-//            Candidate candidateOne = Candidate.of("Lena", 2, 1000);
-//            BaseVac baseVac = BaseVac.of("База вакансий");
-//            Vacancy vacancyOne = Vacancy.of("Строитель");
-//            Vacancy vacancyTwo = Vacancy.of("Программист");
-//            baseVac.addVac(vacancyOne);
-//            baseVac.addVac(vacancyTwo);
-//
-//            session.save(baseVac);
-//
-//            candidateOne.setBaseVac(baseVac);
-//
-//            session.save(candidateOne);
+     /*       Candidate candidateOne = Candidate.of("Lena", 2, 1000);
+            BaseVac baseVac = BaseVac.of("База вакансий");
+            Vacancy vacancyOne = Vacancy.of("Строитель");
+            Vacancy vacancyTwo = Vacancy.of("Программист");
+            baseVac.addVac(vacancyOne);
+            baseVac.addVac(vacancyTwo);
+
+            session.save(baseVac);
+
+            candidateOne.setBaseVac(baseVac);
+
+            session.save(candidateOne);*/
             rsl = session.createQuery(
                     "select distinct c from Candidate c "
                             + "join fetch c.baseVac b "
