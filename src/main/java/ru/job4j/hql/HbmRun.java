@@ -35,7 +35,9 @@ session.save(candidateThree); */
 
             query = session.createQuery("from Candidate s where s.name = :fName");
             query.setParameter("fName", "Lena");
-            System.out.println(query.uniqueResult());
+            for (Object candidate: query.list()) {
+                System.out.println(candidate);
+            }
 
             query = session.createQuery(
                     "update Candidate c set c.name = :newName, c.experience = :newExp,"
